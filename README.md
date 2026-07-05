@@ -20,7 +20,7 @@ and trained as a character-level language model.
 I built this after working through the original transformer paper,
 [*Attention Is All You Need*](https://arxiv.org/abs/1706.03762) (Vaswani et al., 2017),
 and DeepMind's compute-optimal scaling laws,
-[*Training Compute-Optimal Large Language Models*](https://arxiv.org/abs/2203.15556) (Hoffmann et al., 2022 — "Chinchilla").
+[*How To Scale Your Model*]([https://arxiv.org/abs/2203.15556](https://jax-ml.github.io/scaling-book/index)) (Austin et al., "How to Scale Your Model", Google DeepMind, online, 2025.).
 
 The goal was to implement the decoder-only transformer directly from the paper:
 token + positional embeddings, multi-head causal self-attention, the position-wise
