@@ -1,0 +1,29 @@
+A transformer is a model that turns a sequence into a better sequence.
+
+It begins with tokens. Each token becomes a vector, and to every vector we add a
+signal about position, because a sentence is not a bag of words but an order of
+them. From there the work is repetition: the same block, applied again and again,
+each pass refining what the model believes the sequence means.
+
+The heart of the block is attention. For every position, attention asks a simple
+question: which earlier positions should I listen to, and how much? It answers by
+comparing a query against a set of keys, turning the comparisons into weights, and
+mixing the values those weights point to. A single head learns one way to listen.
+Many heads, running in parallel, learn many ways at once, and the model stitches
+their answers back together.
+
+After attention comes a small feed-forward network, applied to each position on
+its own. Attention moves information between positions; the feed-forward layer
+thinks about the information once it has arrived. Around both we wrap residual
+connections and normalization, so that gradients flow and the signal does not drift
+as the stack grows deep.
+
+Training is prediction. Show the model a stretch of text, hide what comes next, and
+ask it to guess the following token. Measure how surprised it is by the truth, and
+nudge every weight to be a little less surprised the next time. Do this across
+enough text and the guesses sharpen. First it learns spaces and common letters,
+then short words, then grammar, and finally something that reads like meaning.
+
+Nothing here is magic. It is linear algebra, a good objective, and a great deal of
+data, arranged so that a simple rule, predict the next token, is enough to pull
+structure out of language one step at a time.
