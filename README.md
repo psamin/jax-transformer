@@ -2,11 +2,10 @@
 
 # jax-transformer
 
-**A decoder-only (GPT-style) transformer written from scratch in pure [JAX](https://github.com/google/jax).**
+**A decoder-only (GPT-style) transformer implemented from scratch in [JAX](https://github.com/google/jax).**
 
-No Flax, no Haiku, no `nn.Module` — the parameters are a plain pytree and every
-layer is spelled out, so you can read the whole thing and see exactly how a
-transformer works. Trains a character-level language model out of the box.
+The architecture follows *Attention Is All You Need*, written out layer by layer
+and trained as a character-level language model.
 
 ![JAX](https://img.shields.io/badge/JAX-pure-blue)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
@@ -16,13 +15,18 @@ transformer works. Trains a character-level language model out of the box.
 
 ---
 
-## Why
+## Background
 
-Most "GPT in JAX" repos lean on a neural-net library that hides the interesting
-parts. This one keeps the model in ~180 lines of readable JAX: token +
-positional embeddings, causal multi-head self-attention, a GELU MLP, pre-norm
-residual blocks, and a language-model head. If you want to understand the math
-rather than call an API, read [`gpt.py`](gpt.py) top to bottom.
+I built this after working through the original transformer paper,
+[*Attention Is All You Need*](https://arxiv.org/abs/1706.03762) (Vaswani et al., 2017),
+and DeepMind's compute-optimal scaling laws,
+[*Training Compute-Optimal Large Language Models*](https://arxiv.org/abs/2203.15556) (Hoffmann et al., 2022 — "Chinchilla").
+
+The goal was to implement the decoder-only transformer directly from the paper:
+token + positional embeddings, multi-head causal self-attention, the position-wise
+feed-forward network, residual connections, and layer normalization — then train it
+end to end on next-character prediction. [`gpt.py`](gpt.py) is the whole model;
+[`train.py`](train.py) is the training loop and sampler.
 
 ## Architecture
 
@@ -96,8 +100,8 @@ requirements.txt  jax[cpu], optax, numpy
 - Runs on CPU; it just goes faster on a GPU/TPU (JAX picks the accelerator up
   automatically — no code change).
 - Sampling supports `temperature` and `top_k`.
-- Kept deliberately small and dependency-light for readability. Natural next steps:
-  weight tying, dropout, a cosine LR schedule, and a proper train/val split.
+- Natural next steps: weight tying, dropout, a cosine LR schedule, and a proper
+  train/val split.
 
 ## License
 
