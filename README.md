@@ -4,8 +4,7 @@
 
 **A decoder-only (GPT-style) transformer implemented from scratch in [JAX](https://github.com/google/jax).**
 
-The architecture follows *Attention Is All You Need*, written out layer by layer
-and trained as a character-level language model.
+The architecture follows *Attention Is All You Need* exactly.
 
 ![JAX](https://img.shields.io/badge/JAX-pure-blue)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
@@ -19,7 +18,7 @@ and trained as a character-level language model.
 
 I built this after working through the original transformer paper,
 [*Attention Is All You Need*](https://arxiv.org/abs/1706.03762) (Vaswani et al., 2017),
-and DeepMind's compute-optimal scaling laws,
+and DeepMind's Scaling book,
 [*How To Scale Your Model*]([https://arxiv.org/abs/2203.15556](https://jax-ml.github.io/scaling-book/index)) (Austin et al., "How to Scale Your Model", Google DeepMind, online, 2025.).
 
 The goal was to implement the decoder-only transformer directly from the paper:
