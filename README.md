@@ -27,11 +27,7 @@ The goal was to train a small transformer on JAX, using Flax NNX to build the mo
 
 ## Notes
 
-- Runs on CPU; it just goes faster on a GPU/TPU (JAX picks the accelerator up
-  automatically — no code change).
-- Sampling supports `temperature` and `top_k`.
-- Natural next steps: weight tying, dropout, a cosine LR schedule, and a proper
-  train/val split.
+- If you use Kaggle instead of Colab, then experiment with data parralesim by utilizing the TPU v5e-8 (This is during 2026, things may change in future)
 
 ## License
 
