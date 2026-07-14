@@ -27,7 +27,7 @@ The goal was to train a small transformer on JAX, using Flax NNX to build the mo
 
 ## Notes
 
-- If you use Kaggle instead of Colab, then experiment with data parralesim by utilizing the TPU v5e-8 (This is during 2026, things may change in future)
+- If you use Kaggle instead of Colab, then experiment with data parallelism by utilizing the TPU v5e-8 (This is during 2026, things may change in future)
 
 ## License
 
