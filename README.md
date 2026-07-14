@@ -4,7 +4,7 @@
 
 **A decoder-only (GPT-style) transformer implemented from scratch in [JAX](https://github.com/google/jax).**
 
-The architecture follows *Attention Is All You Need* exactly.
+The architecture follows *Attention Is All You Need*
 
 ![JAX](https://img.shields.io/badge/JAX-pure-blue)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
