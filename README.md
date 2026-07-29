@@ -1,11 +1,16 @@
 <div align="center">
 
 # transformers
-**A repo for all the different transformers I experiment with
-**A (GPT-style) transformer built with [JAX](https://github.com/google/jax) and trained on the OpenWebText dataset.**
 
-The architecture follows *Attention Is All You Need*
+**A repo for all the different types of transformers I experiment with, including implementations in PyTorch and JAX.**
 
+The PyTorch implementation is a GPT-style transformer based on [Andrej Karpathy's tutorial](https://www.youtube.com/watch?v=kCc8FmEb1nY&t=1463s) and is trained to generate Shakespearean text.
+
+The JAX implementation is a GPT-style transformer trained on the OpenWebText dataset.
+
+Both architectures reference *Attention Is All You Need*.
+
+![PyTorch](https://img.shields.io/badge/PyTorch-orange?logo=pytorch&logoColor=white)
 ![JAX](https://img.shields.io/badge/JAX-pure-blue)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -16,19 +21,22 @@ The architecture follows *Attention Is All You Need*
 
 ## Background
 
-I built this after working through the original transformer paper,
-[*Attention Is All You Need*](https://arxiv.org/abs/1706.03762) (Vaswani et al., 2017),
-and DeepMind's Scaling book,
-[*How To Scale Your Model*]([https://arxiv.org/abs/2203.15556](https://jax-ml.github.io/scaling-book/index)) (Austin et al., "How to Scale Your Model", Google DeepMind, online, 2025.).
+I started this repo after working through the original transformer paper,  
+[*Attention Is All You Need*](https://arxiv.org/abs/1706.03762) by Vaswani et al., [Andrej Karpathy's transformer tutorial](https://www.youtube.com/watch?v=kCc8FmEb1nY&t=1463s), and DeepMind's Scaling Book,  
+[*How to Scale Your Model*](https://jax-ml.github.io/scaling-book/).
 
-The goal was to train a small transformer on JAX, using Flax NNX to build the model architecture, Optax for loss function and optimizer creation, and training on accelerated hardware with the help of Orbax and XLA. 
+The goal is to experiment with different types of transformers in PyTorch and JAX while learning how their architectures, training processes, and optimizations work from the ground up.
 
-```
+The PyTorch implementation references Andrej Karpathy's tutorial and recreates a GPT-style transformer trained to generate Shakespearean text.
+
+For the JAX implementation, I use Flax NNX to build the model architecture, Optax for the loss function and optimizer, Orbax for checkpointing, and XLA for accelerated training.
 
 ## Notes
 
-- If you use Kaggle instead of Colab, then experiment with data parallelism by utilizing the TPU v5e-8 (This is during 2026, things may change in future)
+- If you use Kaggle instead of Colab, you can experiment with data parallelism using the TPU v5e-8.
+- This information is accurate as of 2026, but the available hardware may change in the future.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
+```
