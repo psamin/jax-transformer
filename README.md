@@ -1,7 +1,7 @@
 <div align="center">
 
-# jax-transformer
-
+# transformers
+**A repo for all the different transformers I experiment with
 **A (GPT-style) transformer built with [JAX](https://github.com/google/jax) and trained on the OpenWebText dataset.**
 
 The architecture follows *Attention Is All You Need*
